@@ -72,6 +72,7 @@ begin                         { return new Token(Token.BEGIN, yytext(), yyline+1
 /* Besondere Werte */
 <<EOF>>                                            { return new Token(Token.EOF, "", yyline+1, yycolumn+1); }
 \s                                                 { }
+/* Invalide Strings */
 \"([a-zA-Z0-9\ \.:]|\\\")*[^a-zA-Z0-9\ \.:]?       { return new Token(Token.INVALID, yytext(), yyline+1, yycolumn+1); }
 [^]			                                       { return new Token(Token.INVALID, yytext(), yyline+1, yycolumn+1); }
 
